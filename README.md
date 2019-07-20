@@ -26,12 +26,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## App Components Structure
 
-<!-- ![](app_components_structure.png) -->
+![](component-tree-diagram.png)
 
 ## Setup/Installation Requirements
 
 - _Clone this repository on your Desktop._
-- _Open Terminal (for Mac users) or PowerShell (for Windows users), navigate to blog folder(cd .../Desktop/blog) and run the following command: npm install._
+- _Open Terminal (for Mac users) or PowerShell (for Windows users), navigate to blog folder(cd .../Desktop/blog) and run the following command: npm i. After installing all packages run npm start._
 - _Now run npm start and open a localhost:3000 in your browser._
 
 ## Known Bugs / Limitations
