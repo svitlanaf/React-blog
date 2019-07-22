@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
+import Blog from "./blog";
 
-const BlogList = () => {
-  return <h1>Here will be list of blogs.</h1>;
-};
+class BlogList extends Component {
+  render() {
+    return <Blog />;
+  }
+}
 
 export default BlogList;
