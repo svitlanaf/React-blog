@@ -27,7 +27,7 @@ class NavBar extends Component {
     return (
       <MDBNavbar color="blue" dark expand="md">
         <MDBNavbarBrand>
-          <MDBNavLink to="/" className="white-text">
+          <MDBNavLink to="#" className="white-text">
             MyDevBlog
           </MDBNavLink>
         </MDBNavbarBrand>
@@ -38,7 +38,7 @@ class NavBar extends Component {
               <MDBNavLink to="/home">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/search-blogs">Search Blogs</MDBNavLink>
+              <MDBNavLink to="/blogs">Blogs</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="/communities">Communities</MDBNavLink>
@@ -55,7 +55,7 @@ class NavBar extends Component {
               </MDBDropdown>
             </MDBNavItem> */}
           </MDBNavbarNav>
-          {/* <MDBNavbarNav right>
+          <MDBNavbarNav right>
             <MDBNavItem>
               <MDBFormInline waves>
                 <div className="md-form my-0">
@@ -68,7 +68,7 @@ class NavBar extends Component {
                 </div>
               </MDBFormInline>
             </MDBNavItem>
-          </MDBNavbarNav> */}
+          </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
     );
