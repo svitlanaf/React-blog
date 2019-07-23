@@ -60,9 +60,9 @@ class App extends Component {
             <Route path="/not-found" component={NotFound} />
             <Route path="/new-blog" component={NewBlogForm} />
             <Route path="/new-post" component={NewPostForm} />
-            <Redirect to="/not-found" />
             <Route path="/sign-in" component={SignInAndSignUp} />
             <Redirect from="/" exact to="/home" />
+            <Redirect to="/not-found" />
           </Switch>
         </main>
       </React.Fragment>
