@@ -10,6 +10,8 @@ import Home from "./components/home";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import NewBlogForm from "./components/newBlogForm";
+import NewPostForm from "./components/newPostForm";
+import BlogDetails from "./components/blogDetails";
 
 class App extends Component {
   render() {
@@ -19,12 +21,14 @@ class App extends Component {
         <main className="container">
           <Switch>
             <Route path="/communities" component={Communities} />
+            <Route path="/blogs/:id" component={BlogDetails} />
             <Route path="/home" component={Home} />
             <Route path="/blogs" component={BlogList} />
             <Route path="/register" component={RegistrationForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/not-found" component={NotFound} />
             <Route path="/new-blog" component={NewBlogForm} />
+            <Route path="/new-post" component={NewPostForm} />
             <Redirect to="/not-found" />
             <Redirect from="/" exact to="/home" />
           </Switch>

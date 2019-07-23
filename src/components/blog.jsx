@@ -1,15 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { getBlogs } from "./services/fakeBlogService";
-
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCol
-} from "mdbreact";
 
 class Blog extends Component {
   state = {
@@ -23,23 +14,22 @@ class Blog extends Component {
     return (
       <div>
         {this.state.blogs.map(blog => (
-          <MDBCol>
-            <MDBCard style={{ width: "22rem" }}>
-              <MDBCardImage
-                className="img-fluid"
-                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                waves
-              />
+          <div className="card" key={blog.id}>
+            <img
+              className="card-img-top"
+              src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+              alt="bla"
+            />
 
-              <MDBCardBody>
-                {/* key={blog.id} */}
-                <MDBCardTitle>{blog.title}</MDBCardTitle>
-                <p className="font-weight-bold blue-text">{blog.autor}</p>
-                <MDBCardText>{blog.about}</MDBCardText>
-                <MDBBtn href="#">Read more</MDBBtn>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+            <div className="card-body">
+              <h5 className="card-title">{blog.title}</h5>
+              <h6 className="font-italic">{blog.autor}</h6>
+              <p className="card-text">{blog.about}</p>
+              <Link to={`/blogs/${blog.id}`} className="btn btn-primary">
+                Read more
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     );

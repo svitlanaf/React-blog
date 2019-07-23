@@ -6,6 +6,7 @@ import { getBlog, saveBlog } from "./services/fakeBlogService";
 class NewBlogForm extends Form {
   state = {
     data: {
+      autor: "",
       title: "",
       about: ""
     },
@@ -14,6 +15,9 @@ class NewBlogForm extends Form {
 
   schema = {
     id: Joi.string(),
+    autor: Joi.string()
+      .required()
+      .label("Autor"),
     title: Joi.string()
       .required()
       .label("Title"),
@@ -35,8 +39,9 @@ class NewBlogForm extends Form {
   mapToViewModel(blog) {
     return {
       id: blog.id,
-      title: blog.brand,
-      about: blog.name
+      autor: blog.autor,
+      title: blog.title,
+      about: blog.about
     };
   }
 
@@ -50,6 +55,7 @@ class NewBlogForm extends Form {
       <div>
         <h1>Start Your Blog</h1>
         <form onSubmit={this.handleSubmit}>
+          {this.renderInput("autor", "Autor")}
           {this.renderInput("title", "Title")}
           {this.renderInput("about", "About")}
           {this.renderButton("Save")}
