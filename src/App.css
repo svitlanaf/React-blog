@@ -1,6 +1,8 @@
 .card {
-  width: 30rem;
-  margin-bottom: 30px;
+  width: 40rem;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 40px; /* Added */
 }
 
 .navbar {
