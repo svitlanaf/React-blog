@@ -3,7 +3,7 @@ import SignUp from "./signUp";
 import SignIn from "./signIn";
 
 const SignInAndSignUp = () => (
-  <div>
+  <div className="sign-in-and-sign-up">
     <SignIn />
     <SignUp />
   </div>

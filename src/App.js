@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import NavBar from "./components/navbar";
 import SignInAndSignUp from "./components/signInAndSignUp";
 import BlogList from "./components/blogList";
@@ -9,7 +10,6 @@ import Home from "./components/home";
 import NewBlogForm from "./components/newBlogForm";
 import NewPostForm from "./components/newPostForm";
 import BlogPostList from "./components/blogPostList";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
