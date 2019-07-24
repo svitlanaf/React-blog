@@ -17,15 +17,12 @@ class Blog extends Component {
                 />
               </div>
               <div className="user">
-                <img
-                  className="img-circle"
-                  src="https://stagerightshow.com/wp-content/uploads/2019/05/unique-halloween-black-cat-clipart-halloween-black-cat-png-transparent-this-year.png"
-                />
+                <img className="img-circle" src={this.props.blog.avatar} />
               </div>
               <div className="content">
                 <div className="main">
                   <h3 className="name">{this.props.blog.autor}</h3>
-                  <p className="profession">{this.props.blog.title}</p>
+                  <p className="title">{this.props.blog.title}</p>
                   <p className="text-center">{this.props.blog.about}</p>
                 </div>
               </div>
@@ -35,34 +32,28 @@ class Blog extends Component {
                 <div className="main">
                   <p className="text-center">{this.props.blog.aboutBlog}</p>
 
-                  <div className="social-links text-center">
-                    <Link to="#" className="social-icon facebook  animate">
-                      <span className="fa fa-facebook" />
-                    </Link>
-
-                    <Link
-                      to="#"
-                      target="_blank"
-                      className=" social-icon twitter  animate"
-                    >
-                      <span className="fa fa-twitter" />
-                    </Link>
-
-                    <Link
-                      to="#"
-                      target="_blank"
-                      className=" social-icon github  animate"
-                    >
-                      <span className="fa fa-github-alt" />
-                    </Link>
-                  </div>
                   <Link
-                    to={`/blogs/${this.props.blog.id}`}
-                    className="btn btn-primary"
+                    to="#"
+                    target="_blank"
+                    className="social-icon linkedin animate"
                   >
-                    Read more
+                    <span className="fa fa-linkedin" />
+                  </Link>
+
+                  <Link
+                    to="#"
+                    target="_blank"
+                    className="social-icon github animate"
+                  >
+                    <span className="fa fa-github-alt" />
                   </Link>
                 </div>
+                <Link
+                  to={`/blogs/${this.props.blog.id}`}
+                  className="btn btn-primary"
+                >
+                  Read more
+                </Link>
               </div>
             </div>
           </div>

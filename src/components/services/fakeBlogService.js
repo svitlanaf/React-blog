@@ -5,7 +5,10 @@ export const blogs = [
     title: "C# IS AWESOME",
     about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     aboutBlog:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna.",
+    inLink: "#",
+    ghLink: "#",
+    avatar: "http://hddfhm.com/images/free-black-cat-clipart-13.jpg"
   },
   {
     id: "2",
@@ -14,7 +17,11 @@ export const blogs = [
     about:
       "Praesent consequat orci ut dui semper, ut fringilla diam tincidunt.",
     aboutBlog:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna.",
+    inLink: "#",
+    ghLink: "#",
+    avatar:
+      "https://images.designtrends.com/wp-content/uploads/2016/03/05114403/Laughing-Cat-Clipart.jpg"
   },
   {
     id: "3",
@@ -23,7 +30,10 @@ export const blogs = [
     about:
       "Nullam posuere lorem quam. Donec est purus, feugiat vel porta in, luctus non lectus.",
     aboutBlog:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna.",
+    inLink: "#",
+    ghLink: "#",
+    avatar: "https://ae01.alicdn.com/kf/HTB117BWRpXXXXc5XFXXq6xXFXXXx.jpg"
   }
 ];
 
