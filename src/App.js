@@ -9,7 +9,7 @@ import Communities from "./components/communities";
 import Home from "./components/home";
 import NewBlogForm from "./components/newBlogForm";
 import NewPostForm from "./components/newPostForm";
-import BlogPostList from "./components/blogPostList";
+import PostList from "./components/postList";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -54,7 +54,7 @@ class App extends Component {
         <main className="container">
           <Switch>
             <Route path="/communities" component={Communities} />
-            <Route path="/blogs/:id" component={BlogPostList} />
+            <Route path="/blogs/:id" component={PostList} />
             <Route path="/home" component={Home} />
             <Route path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
