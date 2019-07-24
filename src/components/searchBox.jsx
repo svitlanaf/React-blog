@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchBlogs = ({ value, onChange }) => {
+const SearchBox = ({ value, onChange }) => {
   return (
     <input
       type="text"
@@ -13,4 +13,4 @@ const SearchBlogs = ({ value, onChange }) => {
   );
 };
 
-export default SearchBlogs;
+export default SearchBox;

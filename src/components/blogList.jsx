@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Blog from "./blog";
+import Blog from "./blog/blog";
 import { getBlogs } from "./services/fakeBlogService";
 
 class BlogList extends Component {

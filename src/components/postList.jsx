@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Post from "./post";
 import { getPosts } from "./services/fakePostService";
 
-class BlogPostList extends Component {
+class PostList extends Component {
   state = {
     posts: []
   };
@@ -27,4 +27,4 @@ class BlogPostList extends Component {
   }
 }
 
-export default BlogPostList;
+export default PostList;
