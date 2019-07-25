@@ -1,7 +1,9 @@
+
+
 export const posts = [
   {
     id: "1",
-    blogId: "1",
+    blogId:  "1",
     title: "Pro C# tips",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis tincidunt lectus, ac consectetur dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultrices mi in ex tempor volutpat. Nulla elementum libero tortor, quis auctor orci euismod a. Nulla mollis et eros id blandit. Nunc vitae urna interdum diam pretium maximus. Pellentesque eget sodales urna."
@@ -37,6 +39,7 @@ export const posts = [
 ];
 
 export function getPosts(blogId) {
+  console.log(posts);
   return posts.filter(post => post.blogId === blogId);
 }
 
@@ -46,6 +49,7 @@ export function getPost(postId) {
 
 export function savePost(post) {
   let postInDb = posts.find(p => p.id === post.id) || {};
+  postInDb.blogId = post.blogId;
   postInDb.title = post.title;
   postInDb.content = post.content;
 

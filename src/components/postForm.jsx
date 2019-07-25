@@ -3,19 +3,23 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { getPost, savePost } from "./services/fakePostService";
 import { getBlogs } from "./services/fakeBlogService";
+import {v4} from 'uuid';
 
 class NewPostForm extends Form {
   constructor(props) {
     super(props);
+
      this.state = {
-    data: {
-      blogId: "",
-      title: "",
-      content: ""
-    },
-    blogs: [],
-    errors: {}
-  };
+      data: {
+        id: "",
+        blogId: "",
+        title: "",
+        content: "",
+      },
+      blogs: [],
+      // post: {},
+      errors: {}
+    };
   }
 
   schema = {
@@ -31,11 +35,22 @@ class NewPostForm extends Form {
 
   componentDidMount() {
     const blogs = getBlogs();
+
     this.setState({blogs});
 
     const postId = this.props.match.params.id;
     console.log(this.props.match.params.id);
-    if (postId === "/new-post") return;
+    console.log(this.props)
+    if (postId === "new-post") {
+      let newData = {
+        id: v4()
+      }
+      this.setState({
+        data: newData
+      })
+      console.log(this.state.data);
+      return; 
+    }
 
     const post = getPost(postId);
     console.log(postId);
@@ -46,15 +61,17 @@ class NewPostForm extends Form {
   mapToViewModel(post) {
     return {
       id: post.id,
-      blogId: post.blogId,
+      blogId: post.blogId.id,
       title: post.title,
       content: post.content
-    };
+    };    
   }
 
   doSubmit = () => {
+
     savePost(this.state.data);
-    this.props.history.push("/blog/:id/posts");
+    console.log(this.state.data);
+    this.props.history.push(`/blogs/posts`);
   };
 
   render() {

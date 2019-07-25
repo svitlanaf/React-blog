@@ -2,16 +2,18 @@ import React, { Component } from "react";
 import Post from "./post";
 import { Link } from "react-router-dom";
 import { getPosts } from "./services/fakePostService";
+import { getBlog } from "./services/fakeBlogService";
 
 class PostList extends Component {
   state = {
-    posts: []
+    posts: [],
+    blog: {}
   };
 
   componentDidMount() {
-    this.setState({
-      posts: getPosts(this.props.match.params.id)
-    });
+    const blog = {...getBlog()};
+    this.setState({ posts: getPosts(this.props.match.params.id), blog});
+    console.log(this.state.posts);
   }
 
   render() {
@@ -22,24 +24,25 @@ class PostList extends Component {
     <p>There are no posts yet.</p>
 
     <Link
-          to="/new-post"
+          to="/posts/new-post"
           className="btn btn-primary"
           style={{ marginBottom: 20 }}
         >
           Add post
         </Link>
-        </div>
+      </div>
     );
 
     return (
       <div>
         <Link
-          to="/new-post"
+          to="/posts/new-post"
           className="btn btn-primary"
           style={{ marginBottom: 20 }}
         >
           Add post
         </Link>
+
         {this.state.posts.map(p => (
           <Post post={p} key={p.id}  />
         ))}
