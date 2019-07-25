@@ -40,6 +40,7 @@ export const posts = [
 
 export function getPosts(blogId) {
   console.log(posts);
+  console.log(posts.filter(post => post.blogId === blogId))
   return posts.filter(post => post.blogId === blogId);
 }
 

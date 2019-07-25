@@ -7,13 +7,12 @@ import { getBlog } from "./services/fakeBlogService";
 class PostList extends Component {
   state = {
     posts: [],
-    blog: {}
+    blogId: ""
   };
 
   componentDidMount() {
-    const blog = {...getBlog()};
-    this.setState({ posts: getPosts(this.props.match.params.id), blog});
-    console.log(this.state.posts);
+    const blogId = {...getBlog.id};
+    this.setState({ posts: getPosts(this.props.match.params.id), blogId});
   }
 
   render() {

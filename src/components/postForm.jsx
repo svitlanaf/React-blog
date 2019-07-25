@@ -2,8 +2,7 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { getPost, savePost } from "./services/fakePostService";
-import { getBlogs } from "./services/fakeBlogService";
-import {v4} from 'uuid';
+import { getBlog } from "./services/fakeBlogService";
 
 class NewPostForm extends Form {
   constructor(props) {
@@ -11,13 +10,12 @@ class NewPostForm extends Form {
 
      this.state = {
       data: {
-        id: "",
         blogId: "",
         title: "",
         content: "",
       },
-      blogs: [],
-      // post: {},
+      // blog: {},
+      post: {},
       errors: {}
     };
   }
@@ -34,21 +32,14 @@ class NewPostForm extends Form {
   };
 
   componentDidMount() {
-    const blogs = getBlogs();
-
-    this.setState({blogs});
+    const blog_id = getPost.blogId;
+    console.log(getPost.blogId);
+    this.setState({blog_id});
 
     const postId = this.props.match.params.id;
     console.log(this.props.match.params.id);
     console.log(this.props)
-    if (postId === "new-post") {
-      let newData = {
-        id: v4()
-      }
-      this.setState({
-        data: newData
-      })
-      console.log(this.state.data);
+    if (postId === "new-post"){
       return; 
     }
 
@@ -61,7 +52,7 @@ class NewPostForm extends Form {
   mapToViewModel(post) {
     return {
       id: post.id,
-      blogId: post.blogId.id,
+      blogId: post.blogId,
       title: post.title,
       content: post.content
     };    
