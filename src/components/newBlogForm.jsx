@@ -8,7 +8,11 @@ class NewBlogForm extends Form {
     data: {
       autor: "",
       title: "",
-      about: ""
+      about: "",
+      aboutBlog: "",
+      inLink: "",
+      ghLink: ""
+      // avatar: ""
     },
     errors: {}
   };
@@ -23,27 +27,34 @@ class NewBlogForm extends Form {
       .label("Title"),
     about: Joi.string()
       .required()
-      .label("About")
+      .label("About"),
+    aboutBlog: Joi.string()
+      .required()
+      .label("More about blog"),
+    inLink: Joi.string().label("LinkedIn"),
+    ghLink: Joi.string().label("GitHub")
   };
 
-  componentDidMount() {
-    // axios.get("");
-    const blogId = this.props.match.params.id;
-    if (blogId === "new-blog") return;
+  // componentDidMount() {
+  //   const blogId = this.props.match.params.id;
+  //   if (blogId === "new-blog") return;
+  //   const blog = getBlog(blogId);
+  //   if (!blog) return this.props.history.replace("/not-found");
+  //   this.setState({ data: this.mapToViewModel(blog) });
+  // }
 
-    const blog = getBlog(blogId);
-    if (!blog) return this.props.history.replace("/not-found");
-    this.setState({ data: this.mapToViewModel(blog) });
-  }
-
-  mapToViewModel(blog) {
-    return {
-      id: blog.id,
-      autor: blog.autor,
-      title: blog.title,
-      about: blog.about
-    };
-  }
+  // mapToViewModel(blog) {
+  //   return {
+  //     id: blog.id,
+  //     autor: blog.autor,
+  //     title: blog.title,
+  //     about: blog.about,
+  //     aboutBlog: blog.aboutBlog,
+  //     inLink: blog.inLink,
+  //     ghLink: blog.ghLink,
+  //     avatar: blog.avatar
+  //   };
+  // }
 
   doSubmit = () => {
     saveBlog(this.state.data);
@@ -58,6 +69,10 @@ class NewBlogForm extends Form {
           {this.renderInput("autor", "Autor")}
           {this.renderInput("title", "Title")}
           {this.renderInput("about", "About")}
+          {this.renderInput("aboutBlog", "More about blog")}
+          {this.renderInput("inLink", "LinkedIn")}
+          {this.renderInput("ghLink", "GitHub")}
+          {/* {this.renderInput("avatar", "Avatar")} */}
           {this.renderButton("Save")}
         </form>
       </div>

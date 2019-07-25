@@ -14,6 +14,7 @@ class NewPostForm extends Form {
 
   schema = {
     id: Joi.string(),
+    blogId: Joi.string(),
     title: Joi.string()
       .required()
       .label("Title"),
@@ -22,27 +23,26 @@ class NewPostForm extends Form {
       .label("Content")
   };
 
-  componentDidMount() {
-    // axios.get("");
-    const postId = this.props.match.params.id;
-    if (postId === "new-post") return;
+  // componentDidMount() {
+  //   const postId = this.props.match.params.id;
+  //   if (postId === "new-post") return;
 
-    const post = getPost(postId);
-    if (!post) return this.props.history.replace("/not-found");
-    this.setState({ data: this.mapToViewModel(post) });
-  }
+  //   const post = getPost(postId);
+  //   if (!post) return this.props.history.replace("/not-found");
+  //   this.setState({ data: this.mapToViewModel(post) });
+  // }
 
-  mapToViewModel(post) {
-    return {
-      id: post.id,
-      title: post.title,
-      content: post.content
-    };
-  }
+  // mapToViewModel(post) {
+  //   return {
+  //     id: post.id,
+  //     title: post.title,
+  //     content: post.content
+  //   };
+  // }
 
   doSubmit = () => {
     savePost(this.state.data);
-    this.props.history.push("/blogs");
+    this.props.history.push("/blog/:id");
   };
 
   render() {

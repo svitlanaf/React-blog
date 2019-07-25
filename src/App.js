@@ -54,11 +54,11 @@ class App extends Component {
         <main className="container">
           <Switch>
             <Route path="/communities" component={Communities} />
+            <Route path="/new-blog" component={NewBlogForm} />
             <Route path="/blogs/:id" component={PostList} />
             <Route path="/home" component={Home} />
             <Route path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/new-blog" component={NewBlogForm} />
             <Route path="/new-post" component={NewPostForm} />
             <Route path="/sign-in" component={SignInAndSignUp} />
             <Redirect from="/" exact to="/home" />

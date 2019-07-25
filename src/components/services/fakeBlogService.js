@@ -50,6 +50,9 @@ export function saveBlog(blog) {
   blogInDb.title = blog.title;
   blogInDb.autor = blog.autor;
   blogInDb.about = blog.about;
+  blogInDb.aboutBlog = blog.aboutBlog;
+  blogInDb.inLink = blog.inLink;
+  blogInDb.ghLink = blog.ghLink;
 
   if (!blogInDb.id) {
     blogInDb.id = Date.now().toString();
