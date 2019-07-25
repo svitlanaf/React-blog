@@ -52,7 +52,7 @@ class Blog extends Component {
                   to={`/blogs/${this.props.blog.id}`}
                   className="btn btn-primary"
                 >
-                  Read more
+                  Read posts
                 </Link>
               </div>
             </div>

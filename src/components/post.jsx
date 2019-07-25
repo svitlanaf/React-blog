@@ -13,7 +13,7 @@ class Post extends Component {
         <div className="card-body">
           <h5 className="card-title">{this.props.post.title}</h5>
           <p className="card-text">{this.props.post.content}</p>
-          <Link to="1" className="btn btn-primary">
+          <Link to={`/posts/${this.props.key}`} className="btn btn-primary">
             Read more
           </Link>
         </div>
