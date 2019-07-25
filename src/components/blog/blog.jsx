@@ -49,7 +49,7 @@ class Blog extends Component {
                   </Link>
                 </div>
                 <Link
-                  to={`/blogs/${this.props.blog.id}`}
+                  to={`/blogs/${this.props.blog.id}/posts`}
                   className="btn btn-primary"
                 >
                   Read posts

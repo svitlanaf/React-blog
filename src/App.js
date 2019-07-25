@@ -56,7 +56,7 @@ class App extends Component {
           <Switch>
             <Route path="/communities" component={Communities} />
             <Route path="/new-blog" component={NewBlogForm} />
-            <Route path="/blogs/:id" component={PostList} />
+            <Route path="/blogs/:id/posts" component={PostList} />
             <Route path="/posts/:id" component={PostDetails} />
             <Route path="/home" component={Home} />
             <Route path="/blogs" component={BlogList} />
