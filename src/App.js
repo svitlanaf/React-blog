@@ -8,7 +8,7 @@ import NotFound from "./components/notFound";
 import Communities from "./components/communities";
 import Home from "./components/home";
 import NewBlogForm from "./components/newBlogForm";
-import NewPostForm from "./components/newPostForm";
+import PostForm from "./components/postForm";
 import PostList from "./components/postList";
 import PostDetails from "./components/postDetails";
 import "react-toastify/dist/ReactToastify.css";
@@ -57,11 +57,11 @@ class App extends Component {
             <Route path="/communities" component={Communities} />
             <Route path="/new-blog" component={NewBlogForm} />
             <Route path="/blogs/:id/posts" component={PostList} />
-            <Route path="/posts/:id" component={PostDetails} />
+            <Route path="/posts/:id/:title" component={PostDetails} />
             <Route path="/home" component={Home} />
             <Route path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/new-post" component={NewPostForm} />
+            <Route path="/posts/:id" component={PostForm} />
             <Route path="/sign-in" component={SignInAndSignUp} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="/not-found" />

@@ -2,15 +2,21 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { getPost, savePost } from "./services/fakePostService";
+import { getBlogs } from "./services/fakeBlogService";
 
 class NewPostForm extends Form {
-  state = {
+  constructor(props) {
+    super(props);
+     this.state = {
     data: {
+      blogId: "",
       title: "",
       content: ""
     },
+    blogs: [],
     errors: {}
   };
+  }
 
   schema = {
     id: Joi.string(),
@@ -23,26 +29,32 @@ class NewPostForm extends Form {
       .label("Content")
   };
 
-  // componentDidMount() {
-  //   const postId = this.props.match.params.id;
-  //   if (postId === "new-post") return;
+  componentDidMount() {
+    const blogs = getBlogs();
+    this.setState({blogs});
 
-  //   const post = getPost(postId);
-  //   if (!post) return this.props.history.replace("/not-found");
-  //   this.setState({ data: this.mapToViewModel(post) });
-  // }
+    const postId = this.props.match.params.id;
+    console.log(this.props.match.params.id);
+    if (postId === "/new-post") return;
 
-  // mapToViewModel(post) {
-  //   return {
-  //     id: post.id,
-  //     title: post.title,
-  //     content: post.content
-  //   };
-  // }
+    const post = getPost(postId);
+    console.log(postId);
+    if (!post) return this.props.history.replace("/not-found");
+    this.setState({ data: this.mapToViewModel(post) });
+  }
+
+  mapToViewModel(post) {
+    return {
+      id: post.id,
+      blogId: post.blogId,
+      title: post.title,
+      content: post.content
+    };
+  }
 
   doSubmit = () => {
     savePost(this.state.data);
-    this.props.history.push("/blog/:id");
+    this.props.history.push("/blog/:id/posts");
   };
 
   render() {

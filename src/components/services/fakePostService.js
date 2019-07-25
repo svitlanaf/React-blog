@@ -47,7 +47,7 @@ export function getPost(postId) {
 export function savePost(post) {
   let postInDb = posts.find(p => p.id === post.id) || {};
   postInDb.title = post.title;
-  postInDb.content = post.about;
+  postInDb.content = post.content;
 
   if (!postInDb.id) {
     postInDb.id = Date.now().toString();
