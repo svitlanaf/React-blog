@@ -57,11 +57,12 @@ class App extends Component {
             <Route path="/communities" component={Communities} />
             <Route path="/new-blog" component={NewBlogForm} />
             <Route path="/blogs/:id/posts" component={PostList} />
-            <Route path="/posts/:id/:title" component={PostDetails} />
+            <Route path="/posts/:id" component={PostDetails} />
             <Route path="/home" component={Home} />
-            <Route path="/blogs" component={BlogList} />
+            <Route exact path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/posts/:id" component={PostForm} />
+            <Route path="/posts/edit/:id" component={PostForm} />
+            <Route path="/blogs/:blogId/new-post" component={PostForm} />
             <Route path="/sign-in" component={SignInAndSignUp} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="/not-found" />

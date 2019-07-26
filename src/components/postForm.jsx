@@ -2,20 +2,17 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { getPost, savePost } from "./services/fakePostService";
-import { getBlog } from "./services/fakeBlogService";
 
 class NewPostForm extends Form {
   constructor(props) {
     super(props);
 
-     this.state = {
+    this.state = {
       data: {
         blogId: "",
         title: "",
-        content: "",
+        content: ""
       },
-      // blog: {},
-      post: {},
       errors: {}
     };
   }
@@ -32,16 +29,16 @@ class NewPostForm extends Form {
   };
 
   componentDidMount() {
-    const blog_id = getPost.blogId;
-    console.log(getPost.blogId);
-    this.setState({blog_id});
+    // if props has blogId then we create new post
+    if (this.props.match.params.blogId) {
+      this.setState({ data: { blogId: this.props.match.params.blogId } });
+      return;
+    }
 
+    // if props has post id then we edit post
     const postId = this.props.match.params.id;
     console.log(this.props.match.params.id);
-    console.log(this.props)
-    if (postId === "new-post"){
-      return; 
-    }
+    console.log(this.props);
 
     const post = getPost(postId);
     console.log(postId);
@@ -55,11 +52,10 @@ class NewPostForm extends Form {
       blogId: post.blogId,
       title: post.title,
       content: post.content
-    };    
+    };
   }
 
   doSubmit = () => {
-
     savePost(this.state.data);
     console.log(this.state.data);
     this.props.history.push(`/blogs/posts`);
