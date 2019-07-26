@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { getPost, savePost } from "./services/fakePostService";
 
-class NewPostForm extends Form {
+class PostForm extends Form {
   constructor(props) {
     super(props);
 
@@ -39,7 +39,6 @@ class NewPostForm extends Form {
     const postId = this.props.match.params.id;
 
     const post = getPost(postId);
-    console.log(postId);
     if (!post) return this.props.history.replace("/not-found");
     this.setState({ data: this.mapToViewModel(post) });
   }
@@ -55,7 +54,6 @@ class NewPostForm extends Form {
 
   doSubmit = () => {
     savePost(this.state.data);
-    console.log(this.state.data);
     this.props.history.push(`/blogs/${this.state.data.blogId}/posts`);
   };
 
@@ -73,4 +71,4 @@ class NewPostForm extends Form {
   }
 }
 
-export default NewPostForm;
+export default PostForm;

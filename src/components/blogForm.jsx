@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { getBlog, saveBlog } from "./services/fakeBlogService";
 
-class NewBlogForm extends Form {
+class BlogForm extends Form {
   state = {
     data: {
       autor: "",
@@ -80,4 +80,4 @@ class NewBlogForm extends Form {
   }
 }
 
-export default NewBlogForm;
+export default BlogForm;
