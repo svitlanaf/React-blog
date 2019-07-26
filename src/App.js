@@ -11,8 +11,6 @@ import BlogForm from "./components/blogForm";
 import PostForm from "./components/postForm";
 import PostList from "./components/postList";
 import PostDetails from "./components/postDetails";
-import CommentForm from "./components/commentForm";
-import CommentList from "./components/commentList";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -59,9 +57,7 @@ class App extends Component {
             <Route path="/communities" component={Communities} />
             <Route path="/new-blog" component={BlogForm} />
             <Route exact path="/blogs/:id/posts" component={PostList} />
-            <Route exact path="/posts/:id/comments" component={CommentList} />
             <Route exact path="/posts/:id" component={PostDetails} />
-            <Route exact path="/posts/:id/comment" component={CommentForm} />
             <Route path="/home" component={Home} />
             <Route exact path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />

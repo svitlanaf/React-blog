@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { saveComment } from "./services/fakeCommentService";
+import { saveNewComment } from "./services/fakeCommentService";
 
 class CommentForm extends Form {
   constructor(props) {
@@ -9,40 +9,41 @@ class CommentForm extends Form {
 
     this.state = {
       data: {
-        userId: "",
         content: ""
       },
+      userId: props.userId,
+      postId: props.postId,
       errors: {}
     };
   }
 
   schema = {
-    id: Joi.string(),
-    userId: Joi.string(),
     content: Joi.string()
       .required()
       .label("Content")
   };
 
-  componentDidMount() {
-    //new
-    if (this.props.match.params.postId) {
-      this.setState({ data: { postId: this.props.match.params.postId } });
-      return;
-    }
-  }
-
   mapToViewModel(comment) {
     return {
-      id: comment.id,
-      postId: comment.postId,
       content: comment.content
     };
   }
 
   doSubmit = () => {
-    saveComment(this.state.data);
-    this.props.history.push(`/posts/${this.state.data.postId}/comment`);
+    const comment = {
+      userId: this.state.userId,
+      postId: this.state.postId,
+      content: this.state.data.content
+    };
+    saveNewComment(comment);
+    this.setState({
+      data: {
+        content: ""
+      }
+    });
+    if (this.props.onCommentAdded) {
+      this.props.onCommentAdded(this.state.data);
+    }
   };
 
   render() {

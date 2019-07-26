@@ -10,13 +10,6 @@ class Comment extends Component {
     return (
       <div>
         <h6>{this.props.comment.content}</h6>
-
-        {/* <Link
-          to={`/posts/edit/${this.props.comment.id}`}
-          className="btn btn-primary"
-        >
-          Edit
-        </Link> */}
       </div>
     );
   }

@@ -69,16 +69,11 @@ export function getComment(commentId) {
   return comments.find(c => c.id === commentId);
 }
 
-export function saveComment(comment) {
-  let commentInDb = comments.find(c => c.id === comment.id) || {};
-  commentInDb.userId = comment.userId;
-  commentInDb.content = comment.content;
-  if (!commentInDb.id) {
-    commentInDb.id = Date.now().toString();
-    comments.push(commentInDb);
-  }
+export function saveNewComment(comment) {
+  comment.id = Date.now().toString();
+  comments.push(comment);
 
-  return commentInDb;
+  return comment;
 }
 
 export function deleteComment(id) {
