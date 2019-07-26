@@ -37,8 +37,6 @@ class NewPostForm extends Form {
 
     // if props has post id then we edit post
     const postId = this.props.match.params.id;
-    console.log(this.props.match.params.id);
-    console.log(this.props);
 
     const post = getPost(postId);
     console.log(postId);
@@ -58,7 +56,7 @@ class NewPostForm extends Form {
   doSubmit = () => {
     savePost(this.state.data);
     console.log(this.state.data);
-    this.props.history.push(`/blogs/posts`);
+    this.props.history.push(`/blogs/${this.state.data.blogId}/posts`);
   };
 
   render() {

@@ -12,14 +12,6 @@ class Home extends Component {
         >
           New Blog
         </Link>
-
-        <Link
-          to="/new-post"
-          className="btn btn-primary"
-          style={{ marginBottom: 20 }}
-        >
-          New post
-        </Link>
       </div>
     );
   }
