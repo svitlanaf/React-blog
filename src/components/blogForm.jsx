@@ -35,29 +35,14 @@ class BlogForm extends Form {
     ghLink: Joi.string().label("GitHub")
   };
 
-  // componentDidMount() {
-  //   const blogId = this.props.match.params.id;
-  //   if (blogId === "new-blog") return;
-  //   const blog = getBlog(blogId);
-  //   if (!blog) return this.props.history.replace("/not-found");
-  //   this.setState({ data: this.mapToViewModel(blog) });
-  // }
-
-  // mapToViewModel(blog) {
-  //   return {
-  //     id: blog.id,
-  //     autor: blog.autor,
-  //     title: blog.title,
-  //     about: blog.about,
-  //     aboutBlog: blog.aboutBlog,
-  //     inLink: blog.inLink,
-  //     ghLink: blog.ghLink,
-  //     avatar: blog.avatar
-  //   };
-  // }
+  hasCurrentUser() {
+    return this.props.currentUser;
+  }
 
   doSubmit = () => {
-    saveBlog(this.state.data);
+    const blog = this.state.data;
+    blog.userId = this.props.currentUser.id;
+    saveBlog(blog);
     this.props.history.push("/blogs");
   };
 

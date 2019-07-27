@@ -1,6 +1,6 @@
 export const users = [
   {
-    id: "uNcVhxKx01TKZGPmwBMTQmsYFks2",
+    id: "1",
     name: "Svitlana Filatova"
   },
   {

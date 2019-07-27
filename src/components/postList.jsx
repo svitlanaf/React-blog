@@ -17,11 +17,12 @@ class PostList extends Component {
   isCurrentUserAuthor() {
     return (
       this.props.currentUser &&
-      this.state.blog.autorId === this.props.currentUser.id
+      this.state.blog.userId === this.props.currentUser.id
     );
   }
 
   renderAddPostIfNeeded() {
+    console.log(this.props.currentUser);
     if (this.isCurrentUserAuthor()) {
       return (
         <Link

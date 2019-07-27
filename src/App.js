@@ -55,7 +55,12 @@ class App extends Component {
         <main className="container">
           <Switch>
             <Route path="/communities" component={Communities} />
-            <Route path="/new-blog" component={BlogForm} />
+            <Route
+              path="/new-blog"
+              render={props => (
+                <BlogForm {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route
               exact
               path="/blogs/:id/posts"

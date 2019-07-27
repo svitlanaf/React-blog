@@ -1,7 +1,7 @@
 export const blogs = [
   {
     id: "1",
-    userId: "uNcVhxKx01TKZGPmwBMTQmsYFks2",
+    userId: "1",
     title: "C# IS AWESOME",
     about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     aboutBlog:
@@ -12,7 +12,7 @@ export const blogs = [
   },
   {
     id: "2",
-    userId: "John Smith",
+    userId: "5",
     title: "My Programmer Journey",
     about:
       "Praesent consequat orci ut dui semper, ut fringilla diam tincidunt.",
@@ -25,7 +25,7 @@ export const blogs = [
   },
   {
     id: "3",
-    userId: "Mary Green",
+    userId: "6",
     title: "How To Become A Professional Dev",
     about:
       "Nullam posuere lorem quam. Donec est purus, feugiat vel porta in, luctus non lectus.",
@@ -48,7 +48,7 @@ export function getBlog(blogId) {
 export function saveBlog(blog) {
   let blogInDb = blogs.find(b => b.id === blog.id) || {};
   blogInDb.title = blog.title;
-  // blogInDb.userId = blog.userId;
+  blogInDb.userId = blog.userId;
   blogInDb.about = blog.about;
   blogInDb.aboutBlog = blog.aboutBlog;
   blogInDb.inLink = blog.inLink;
