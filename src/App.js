@@ -63,7 +63,13 @@ class App extends Component {
                 <PostList {...props} currentUser={this.state.currentUser} />
               )}
             />
-            <Route exact path="/posts/:id" component={PostDetails} />
+            <Route
+              exact
+              path="/posts/:id"
+              render={props => (
+                <PostDetails {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route
               path="/home"
               render={props => (

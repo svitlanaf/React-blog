@@ -14,12 +14,28 @@ class PostDetails extends Component {
     };
   }
 
-  handleCommentAdded = newComment => {
+  handleCommentAdded = () => {
     const comments = getComments(this.state.post.id);
     this.setState({
       comments: comments
     });
   };
+
+  isCurrentUser() {
+    return this.props.currentUser;
+  }
+
+  renderNewCommentFormIfNeeded() {
+    if (this.isCurrentUser()) {
+      return (
+        <CommentForm
+          postId={this.state.post.id}
+          userId={this.props.currentUser.id}
+          onCommentAdded={this.handleCommentAdded}
+        />
+      );
+    }
+  }
 
   render() {
     const post = this.state.post;
@@ -37,15 +53,9 @@ class PostDetails extends Component {
           </div>
         </div>
         <CommentList comments={this.state.comments} />
-        {/* {currentUser ? ( */}
-        <CommentForm
-          postId={post.id}
-          userId="1" //loged in userid
-          onCommentAdded={this.handleCommentAdded}
-        />
-        {/* ) : (
-          <p>Please logon to add comment.</p>
-        )} */}
+        <p />
+        {/* <p>Please login to add comment.</p> */}
+        {this.renderNewCommentFormIfNeeded()}
       </div>
     );
   }

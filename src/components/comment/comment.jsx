@@ -11,7 +11,7 @@ class Comment extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props);
     return (
       <div>
         <h6>{this.props.comment.content}</h6>
