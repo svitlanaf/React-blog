@@ -51,7 +51,7 @@ export function getUser(userId) {
 
 export function saveUser(user) {
   let userInDb = users.find(u => u.id === user.id) || {};
-  userInDb.name = blog.autor;
+  userInDb.name = user.name;
 
   if (!userInDb.id) {
     userInDb.id = Date.now().toString();

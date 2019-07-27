@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form from "./common/form";
-import { saveNewComment } from "./services/fakeCommentService";
+import Form from "../common/form";
+import { saveNewComment } from "../services/fakeCommentService";
 
 class CommentForm extends Form {
   constructor(props) {
@@ -48,11 +48,10 @@ class CommentForm extends Form {
 
   render() {
     return (
-      <div>
-        <h1>New Comment</h1>
+      <div id="comment">
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("content", "Content")}
-          {this.renderButton("Save")}
+          {this.renderInput("content", "Add comment")}
+          {this.renderButton("Add")}
         </form>
       </div>
     );
@@ -60,3 +59,23 @@ class CommentForm extends Form {
 }
 
 export default CommentForm;
+
+{
+  /* <div className="col-sm-1">
+<div className="img-circle">
+<img className="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style={{width="200", height="300"}} />
+</div>
+</div>
+
+<div class="col-sm-5">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+</div>
+<div class="panel-body">
+Panel content
+</div>
+</div>
+</div>
+</div> */
+}

@@ -9,16 +9,13 @@ class Form extends Component {
   };
 
   validate = () => {
-    console.log(this.schema)
     const result = Joi.validate(this.state.data, this.schema, {
       abortEarly: false
     });
     if (!result.error) return null;
-    console.log(this.state.data);
 
     const errors = {};
     for (let item of result.error.details) errors[item.path[0]] = item.message;
-    console.log(errors);
     return errors;
   };
 
@@ -64,6 +61,21 @@ class Form extends Component {
     return (
       <Input
         type={type}
+        name={name}
+        value={data[name]}
+        label={label}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  }
+
+  renderTextArea(name, label) {
+    const { data, errors } = this.state;
+
+    return (
+      <textarea
+        className="form-control"
         name={name}
         value={data[name]}
         label={label}

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Comment from "./comment";
-import { Link } from "react-router-dom";
+import Comment from "./comment/comment";
 
 class CommentList extends Component {
   render() {

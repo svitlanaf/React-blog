@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CommentList from "./commentList";
-import CommentForm from "./commentForm";
-
+import CommentForm from "./comment/commentForm";
 import { getPost } from "./services/fakePostService";
 import { getComments } from "./services/fakeCommentService";
 
@@ -20,29 +19,29 @@ class PostDetails extends Component {
     this.setState({
       comments: comments
     });
-    console.log(comments);
   };
 
   render() {
     const post = this.state.post;
-    console.log(post);
     return (
-      <div className="card">
-        <img
-          className="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Others/images/30.jpg"
-          alt="bla"
-        />
-        <div className="card-body">
-          <h5 className="card-title">{post.title}</h5>
-          <p className="card-text">{post.content}</p>
+      <div>
+        <div className="card">
+          <img
+            className="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Others/images/30.jpg"
+            alt="bla"
+          />
+          <div className="card-body">
+            <h5 className="card-title">{post.title}</h5>
+            <p className="card-text">{post.content}</p>
+          </div>
         </div>
+        <CommentList comments={this.state.comments} />
         <CommentForm
           postId={post.id}
-          userId="1"
+          userId="1" //loged in userid
           onCommentAdded={this.handleCommentAdded}
         />
-        <CommentList comments={this.state.comments} />
       </div>
     );
   }

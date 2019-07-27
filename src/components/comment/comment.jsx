@@ -1,15 +1,21 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import "./comment.styles.css";
+import { getUser } from "../services/fakeUserService";
 
 class Comment extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: getUser(this.props.comment.userId)
+    };
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <h6>{this.props.comment.content}</h6>
+        <p>{this.state.user.name}</p>
       </div>
     );
   }
