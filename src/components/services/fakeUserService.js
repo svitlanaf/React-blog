@@ -1,7 +1,7 @@
 export const users = [
   {
-    id: "1",
-    name: "Jane Doe"
+    id: "uNcVhxKx01TKZGPmwBMTQmsYFks2",
+    name: "Svitlana Filatova"
   },
   {
     id: "2",

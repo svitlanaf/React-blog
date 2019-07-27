@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { auth } from "../firebase/firebase.utils";
 
 function NavBar({ currentUser }) {
+  console.log({ currentUser });
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <Link className="navbar-brand" to="/">
@@ -22,14 +23,14 @@ function NavBar({ currentUser }) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/home">
+            {/* <NavLink className="nav-link" to="/home">
               Home
-            </NavLink>
+            </NavLink> */}
           </li>
           <li className="nav-item">
-            <NavLink className="nav-item nav-link" to="/blogs">
+            {/* <NavLink className="nav-item nav-link" to="/blogs">
               Blogs
-            </NavLink>
+            </NavLink> */}
           </li>
           <li className="nav-item">
             <NavLink className="nav-item nav-link" to="/communities">

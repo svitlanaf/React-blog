@@ -37,11 +37,15 @@ class PostDetails extends Component {
           </div>
         </div>
         <CommentList comments={this.state.comments} />
+        {/* {currentUser ? ( */}
         <CommentForm
           postId={post.id}
           userId="1" //loged in userid
           onCommentAdded={this.handleCommentAdded}
         />
+        {/* ) : (
+          <p>Please logon to add comment.</p>
+        )} */}
       </div>
     );
   }

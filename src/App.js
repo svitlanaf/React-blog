@@ -56,15 +56,26 @@ class App extends Component {
           <Switch>
             <Route path="/communities" component={Communities} />
             <Route path="/new-blog" component={BlogForm} />
-            <Route exact path="/blogs/:id/posts" component={PostList} />
+            <Route
+              exact
+              path="/blogs/:id/posts"
+              render={props => (
+                <PostList {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route exact path="/posts/:id" component={PostDetails} />
-            <Route path="/home" component={Home} />
+            <Route
+              path="/home"
+              render={props => (
+                <Home {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route exact path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
             <Route path="/posts/edit/:id" component={PostForm} />
             <Route path="/blogs/:blogId/posts/new-post" component={PostForm} />
             <Route path="/sign-in" component={SignInAndSignUp} />
-            <Redirect from="/" exact to="/home" />
+            <Redirect from="/" exact to="/blogs" />
             <Redirect to="/not-found" />
           </Switch>
         </main>

@@ -11,11 +11,11 @@ class Comment extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <h6>{this.props.comment.content}</h6>
-        <p>{this.state.user.name}</p>
+        <p id="userName">{this.state.user.name}</p>
       </div>
     );
   }

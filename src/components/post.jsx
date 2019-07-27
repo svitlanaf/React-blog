@@ -20,12 +20,16 @@ class Post extends Component {
           <Link to={`/posts/${this.props.post.id}`} className="btn btn-primary">
             Read more
           </Link>
-          <Link
-            to={`/posts/edit/${this.props.post.id}`}
-            className="btn btn-primary"
-          >
-            Edit
-          </Link>
+          {this.props.showEdit ? (
+            <Link
+              to={`/posts/edit/${this.props.post.id}`}
+              className="btn btn-primary"
+            >
+              Edit
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );

@@ -60,7 +60,7 @@ class SignIn extends React.Component {
             <button type="submit" value="Submit Form">
               Sign In
             </button>
-            <button onClick={signInWithGoogle} isGoogleSignIn>
+            <button onClick={signInWithGoogle} isgooglesignin="true">
               {" "}
               Sign in with Google{" "}
             </button>
