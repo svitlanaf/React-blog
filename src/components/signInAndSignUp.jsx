@@ -3,20 +3,20 @@ import SignUp from "./signUp";
 import SignIn from "./signIn";
 
 class SignInAndSignUp extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   isCurrentUser() {
     return this.props.currentUser;
   }
+
+  handleSingInOrSignUp = () => {
+    this.props.history.push("/blogs");
+  };
 
   renderSignInAndSignUp() {
     if (!this.isCurrentUser()) {
       return (
         <div className="sign-in-and-sign-up">
-          <SignIn />
-          <SignUp />
+          <SignIn onSignedIn={this.handleSingInOrSignUp} />
+          <SignUp onSignedUp={this.handleSingInOrSignUp} />
         </div>
       );
     }

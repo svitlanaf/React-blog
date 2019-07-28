@@ -38,6 +38,7 @@ class SignUp extends React.Component {
         password: "",
         confirmPassword: ""
       });
+      this.props.onSignedUp();
     } catch (error) {
       console.error(error);
     }
