@@ -17,7 +17,11 @@ class Blog extends Component {
                 />
               </div>
               <div className="user">
-                <img className="img-circle" src={this.props.blog.avatar} />
+                <img
+                  className="img-circle"
+                  src={this.props.blog.avatar}
+                  alt="user-avatar"
+                />
               </div>
               <div className="content">
                 <div className="main">

@@ -22,7 +22,6 @@ class PostList extends Component {
   }
 
   renderAddPostIfNeeded() {
-    console.log(this.props.currentUser);
     if (this.isCurrentUserAuthor()) {
       return (
         <Link

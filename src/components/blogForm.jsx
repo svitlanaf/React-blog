@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { getBlog, saveBlog } from "./services/fakeBlogService";
+import { saveBlog } from "./services/fakeBlogService";
 
 class BlogForm extends Form {
   state = {

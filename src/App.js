@@ -6,7 +6,6 @@ import SignInAndSignUp from "./components/signInAndSignUp";
 import BlogList from "./components/blogList";
 import NotFound from "./components/notFound";
 import Communities from "./components/communities";
-import Home from "./components/home";
 import BlogForm from "./components/blogForm";
 import PostForm from "./components/postForm";
 import PostList from "./components/postList";
@@ -75,17 +74,19 @@ class App extends Component {
                 <PostDetails {...props} currentUser={this.state.currentUser} />
               )}
             />
-            <Route
-              path="/home"
-              render={props => (
-                <Home {...props} currentUser={this.state.currentUser} />
-              )}
-            />
             <Route exact path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
             <Route path="/posts/edit/:id" component={PostForm} />
             <Route path="/blogs/:blogId/posts/new-post" component={PostForm} />
-            <Route path="/sign-in" component={SignInAndSignUp} />
+            <Route
+              path="/sign-in"
+              render={props => (
+                <SignInAndSignUp
+                  {...props}
+                  currentUser={this.state.currentUser}
+                />
+              )}
+            />
             <Redirect from="/" exact to="/blogs" />
             <Redirect to="/not-found" />
           </Switch>

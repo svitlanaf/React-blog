@@ -59,23 +59,3 @@ class CommentForm extends Form {
 }
 
 export default CommentForm;
-
-{
-  /* <div className="col-sm-1">
-<div className="img-circle">
-<img className="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style={{width="200", height="300"}} />
-</div>
-</div>
-
-<div class="col-sm-5">
-<div class="panel panel-default">
-<div class="panel-heading">
-<strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
-</div>
-<div class="panel-body">
-Panel content
-</div>
-</div>
-</div>
-</div> */
-}
