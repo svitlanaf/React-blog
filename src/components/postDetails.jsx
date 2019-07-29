@@ -59,7 +59,7 @@ class PostDetails extends Component {
           <div className="card-body">
             <h5 className="card-title">{post.title}</h5>
             <p className="card-text">{post.content}</p>
-            <Like liked={post.liked} onClick={() => this.handleLike} />
+            <Like liked={post.liked} onClick={() => this.handleLike(post)} />
           </div>
         </div>
         <CommentList comments={this.state.comments} />
