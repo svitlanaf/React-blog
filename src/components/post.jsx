@@ -8,7 +8,7 @@ class Post extends Component {
     super(props);
     let blog = getBlog(this.props.post.blogId)
     let content = this.props.post.content
-    let short_content = content.split(' ', 10).join(" ") + "..."
+    let short_content = content.split(' ', 15).join(" ") + "..."
     // console.log(short_content)
 
     this.state = {

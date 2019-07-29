@@ -3,6 +3,7 @@ import CommentList from "./commentList";
 import CommentForm from "./comment/commentForm";
 import { getPost } from "./services/fakePostService";
 import { getComments } from "./services/fakeCommentService";
+import Like from "./common/like";
 
 class PostDetails extends Component {
   constructor(props) {
@@ -14,12 +15,20 @@ class PostDetails extends Component {
     };
   }
 
+  
+
   handleCommentAdded = () => {
     const comments = getComments(this.state.post.id);
     this.setState({
       comments: comments
     });
   };
+
+  handleLike = post => {
+    const blogPost = this.state.post;
+    post.liked = !post.liked;
+    this.setState({ blogPost });
+  }
 
   isCurrentUser() {
     return this.props.currentUser;
@@ -50,7 +59,7 @@ class PostDetails extends Component {
           <div className="card-body">
             <h5 className="card-title">{post.title}</h5>
             <p className="card-text">{post.content}</p>
-            {/* <Like liked={movie.liked} onClick={() => this.props.onLike(movie)} /> */}
+            <Like liked={post.liked} onClick={() => this.handleLike} />
           </div>
         </div>
         <CommentList comments={this.state.comments} />
