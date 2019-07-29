@@ -7,9 +7,13 @@ class Post extends Component {
   constructor(props) {
     super(props);
     let blog = getBlog(this.props.post.blogId)
+    let content = this.props.post.content
+    let short_content = content.split(' ', 10).join(" ") + "..."
+    // console.log(short_content)
 
     this.state = {
-    user: getUser(blog.userId)
+    user: getUser(blog.userId),
+    short_content: short_content
     };
   }
 
@@ -24,7 +28,7 @@ class Post extends Component {
         />
         <div className="card-body">
           <h5 className="card-title">{this.props.post.title}</h5>
-          <p className="card-text">{this.props.post.content}</p>
+          <p className="card-text">{this.state.short_content}</p>
           <div className="row">
           <div className="col-6">
           <Link to={`/posts/${this.props.post.id}`} className="btn btn-primary">

@@ -57,10 +57,10 @@ class PostForm extends Form {
     this.props.history.push(`/blogs/${this.state.data.blogId}/posts`);
   };
 
+
   render() {
     return (
       <div>
-        <h1>New Post</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderTextArea("content", "Content")}
