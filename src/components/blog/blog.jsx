@@ -51,11 +51,13 @@ class Blog extends Component {
             <div className="back">
               <div className="content">
                 <div className="main">
-                  <p className="text-center">{this.props.blog.aboutBlog}</p>
+                <div id="about_title" >About this blog</div>
+                  <p id="about_content" className="text-center">{this.props.blog.aboutBlog}</p>
 
                   <Link
                     to="#"
                     target="_blank"
+                    id="linkedin"
                     className="social-icon linkedin animate"
                   >
                     <span className="fa fa-linkedin" />
@@ -64,6 +66,7 @@ class Blog extends Component {
                   <Link
                     to="#"
                     target="_blank"
+                    id="github"
                     className="social-icon github animate"
                   >
                     <span className="fa fa-github-alt" />
