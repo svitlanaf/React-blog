@@ -44,17 +44,17 @@ class PostDetails extends Component {
         <div className="card">
           <img
             className="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Others/images/30.jpg"
+            src="https://mdbootstrap.com/img/Photos/Others/images/50.jpg"
             alt="bla"
           />
           <div className="card-body">
             <h5 className="card-title">{post.title}</h5>
             <p className="card-text">{post.content}</p>
+            {/* <Like liked={movie.liked} onClick={() => this.props.onLike(movie)} /> */}
           </div>
         </div>
         <CommentList comments={this.state.comments} />
         <p />
-        {/* <p>Please login to add comment.</p> */}
         {this.renderNewCommentFormIfNeeded()}
       </div>
     );
