@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { getUser } from "../services/fakeUserService";
 import "./blog.styles.css";
 
 class Blog extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: getUser(this.props.blog.userId)
+    };
+  }
+
   render() {
     return (
       <div>
@@ -25,9 +33,9 @@ class Blog extends Component {
               </div>
               <div className="content">
                 <div className="main">
-                  <h3 className="name">{this.props.blog.autor}</h3>
                   <p className="title">{this.props.blog.title}</p>
                   <p className="text-center">{this.props.blog.about}</p>
+                  <p className="name">{this.state.user.name}</p>
                 </div>
               </div>
             </div>
