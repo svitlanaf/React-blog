@@ -55,7 +55,7 @@ class Blog extends Component {
                   <p id="about_content" className="text-center">{this.props.blog.aboutBlog}</p>
 
                   <Link
-                    to="#"
+                    to={this.props.blog.inLink}
                     target="_blank"
                     id="linkedin"
                     className="social-icon linkedin animate"
@@ -64,7 +64,7 @@ class Blog extends Component {
                   </Link>
 
                   <Link
-                    to="#"
+                    to={this.props.blog.ghLink}
                     target="_blank"
                     id="github"
                     className="social-icon github animate"
@@ -74,6 +74,7 @@ class Blog extends Component {
                 </div>
                 <Link
                   to={`/blogs/${this.props.blog.id}/posts`}
+                  id="read_posts"
                   className="btn btn-primary"
                 >
                   Read posts

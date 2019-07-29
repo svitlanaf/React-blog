@@ -54,7 +54,7 @@ class BlogForm extends Form {
           {this.renderInput("autor", "Autor")}
           {this.renderInput("title", "Title")}
           {this.renderInput("about", "About")}
-          {this.renderInput("aboutBlog", "More about blog")}
+          {this.renderTextArea("aboutBlog", "More about blog")}
           {this.renderInput("inLink", "LinkedIn")}
           {this.renderInput("ghLink", "GitHub")}
           {/* {this.renderInput("avatar", "Avatar")} */}

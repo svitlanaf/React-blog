@@ -63,7 +63,7 @@ class PostForm extends Form {
         <h1>New Post</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
-          {this.renderInput("content", "Content")}
+          {this.renderTextArea("content", "Content")}
           {this.renderButton("Save")}
         </form>
       </div>
