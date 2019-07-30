@@ -1,3 +1,5 @@
+import { firestore } from "../../firebase/firebase.utils";
+
 export const comments = [
   {
     id: "1",
@@ -60,6 +62,38 @@ export const comments = [
     content: "Lorem ipsum dolor sit amet."
   }
 ];
+
+export function loadComments(postId) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("comments")
+      .where("postId", "==", postId)
+      .get()
+      .then(function(snapshot) {
+        resolve(snapshot.docs);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
+
+export function loadComment(id) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("comments")
+      .doc(id)
+      .get()
+      .then(function(docRef) {
+        resolve(docRef);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
 
 export function getComments(postId) {
   return comments.filter(comment => comment.postId === postId);

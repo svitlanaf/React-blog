@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import CommentList from "./commentList";
 import CommentForm from "./comment/commentForm";
 import { loadPost } from "./services/fakePostService";
-import { getComments } from "./services/fakeCommentService";
+// import { getComments } from "./services/fakeCommentService";
+import { loadComments } from "./services/fakeCommentService";
 import Like from "./common/like";
 
 class PostDetails extends Component {
   constructor(props) {
     super(props);
+
     loadPost(this.props.match.params.id)
       .then(postDoc => {
         this.setState({
@@ -18,17 +20,32 @@ class PostDetails extends Component {
         console.log(error);
       });
 
+    loadComments(this.props.match.params.id)
+      .then(comments => {
+        this.setState({
+          comments
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     this.state = {
       post: {},
-      comments: getComments(props.match.params.id)
+      comments: []
     };
   }
 
   handleCommentAdded = () => {
-    const comments = getComments(this.state.post.id);
-    this.setState({
-      comments: comments
-    });
+    loadComments(this.props.match.params.id)
+      .then(comments => {
+        this.setState({
+          comments
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   handleLike = post => {

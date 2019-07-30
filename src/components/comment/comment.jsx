@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import "./comment.styles.css";
-import { getUser } from "../services/fakeUserService";
+import { loadUser } from "../services/fakeUserService";
+// import { getUser } from "../services/fakeUserService";
 
 class Comment extends Component {
   constructor(props) {
     super(props);
+
+    loadUser(this.props.comment.userId)
+      .then(userDoc => {
+        this.setState({
+          user: userDoc.data()
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     this.state = {
-      user: getUser(this.props.comment.userId)
+      user: {}
     };
   }
 
@@ -14,7 +26,7 @@ class Comment extends Component {
     return (
       <div>
         <h6>{this.props.comment.content}</h6>
-        <p id="userName">{this.state.user.name}</p>
+        <p id="userName">{this.state.user.displayName}</p>
       </div>
     );
   }

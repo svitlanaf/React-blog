@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Blog from "./blog/blog";
-import { getBlogs, loadAllBlogs } from "./services/fakeBlogService";
+import { loadAllBlogs } from "./services/fakeBlogService";
 
 class BlogList extends Component {
   state = {
