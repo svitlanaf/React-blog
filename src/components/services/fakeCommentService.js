@@ -95,20 +95,35 @@ export function loadComment(id) {
   });
 }
 
-export function getComments(postId) {
-  return comments.filter(comment => comment.postId === postId);
-}
-
-export function getComment(commentId) {
-  return comments.find(c => c.id === commentId);
-}
-
 export function saveNewComment(comment) {
-  comment.id = Date.now().toString();
-  comments.push(comment);
-
-  return comment;
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("comments")
+      .add(comment)
+      .then(function(snapshot) {
+        resolve(snapshot.docs);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
 }
+
+// export function getComments(postId) {
+//   return comments.filter(comment => comment.postId === postId);
+// }
+
+// export function getComment(commentId) {
+//   return comments.find(c => c.id === commentId);
+// }
+
+// export function saveNewComment(comment) {
+//   comment.id = Date.now().toString();
+//   comments.push(comment);
+
+//   return comment;
+// }
 
 export function deleteComment(id) {
   let commentInDb = comments.find(c => c.id === id);

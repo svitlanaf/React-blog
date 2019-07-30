@@ -35,15 +35,16 @@ class CommentForm extends Form {
       postId: this.state.postId,
       content: this.state.data.content
     };
-    saveNewComment(comment);
-    this.setState({
-      data: {
-        content: ""
+    saveNewComment(comment).then(commentDoc => {
+      this.setState({
+        data: {
+          content: ""
+        }
+      });
+      if (this.props.onCommentAdded) {
+        this.props.onCommentAdded(this.state.data);
       }
     });
-    if (this.props.onCommentAdded) {
-      this.props.onCommentAdded(this.state.data);
-    }
   };
 
   render() {

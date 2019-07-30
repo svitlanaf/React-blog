@@ -62,7 +62,7 @@ class PostDetails extends Component {
     if (this.isCurrentUser()) {
       return (
         <CommentForm
-          postId={this.state.post.id}
+          postId={this.props.match.params.id}
           userId={this.props.currentUser.id}
           onCommentAdded={this.handleCommentAdded}
         />
