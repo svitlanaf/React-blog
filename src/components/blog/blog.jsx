@@ -71,23 +71,23 @@ class Blog extends Component {
                     {this.state.blog.aboutBlog}
                   </p>
 
-                  <Link
-                    to={this.state.blog.inLink}
+                  <a
+                    href={this.state.blog.inLink}
                     target="_blank"
                     id="linkedin"
                     className="social-icon linkedin animate"
                   >
                     <span className="fa fa-linkedin" />
-                  </Link>
+                  </a>
 
-                  <Link
-                    to={this.state.blog.ghLink}
+                  <a
+                    href={this.state.blog.ghLink}
                     target="_blank"
                     id="github"
                     className="social-icon github animate"
                   >
                     <span className="fa fa-github-alt" />
-                  </Link>
+                  </a>
                 </div>
                 <Link
                   to={`/blogs/${this.props.blog.id}/posts`}

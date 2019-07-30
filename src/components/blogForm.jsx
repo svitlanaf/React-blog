@@ -1,12 +1,11 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { saveBlog } from "./services/fakeBlogService";
+import { saveNewBlog } from "./services/fakeBlogService";
 
 class BlogForm extends Form {
   state = {
     data: {
-      autor: "",
       title: "",
       about: "",
       aboutBlog: "",
@@ -18,10 +17,6 @@ class BlogForm extends Form {
   };
 
   schema = {
-    id: Joi.string(),
-    autor: Joi.string()
-      .required()
-      .label("Autor"),
     title: Joi.string()
       .required()
       .label("Title"),
@@ -42,8 +37,9 @@ class BlogForm extends Form {
   doSubmit = () => {
     const blog = this.state.data;
     blog.userId = this.props.currentUser.id;
-    saveBlog(blog);
-    this.props.history.push("/blogs");
+    saveNewBlog(blog).then(blogDoc => {
+      this.props.history.push("/blogs");
+    });
   };
 
   render() {
@@ -51,7 +47,6 @@ class BlogForm extends Form {
       <div>
         <h1>Start Your Blog</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("autor", "Autor")}
           {this.renderInput("title", "Title")}
           {this.renderInput("about", "About")}
           {this.renderTextArea("aboutBlog", "More about blog")}
