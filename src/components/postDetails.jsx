@@ -1,21 +1,28 @@
 import React, { Component } from "react";
 import CommentList from "./commentList";
 import CommentForm from "./comment/commentForm";
-import { getPost } from "./services/fakePostService";
+import { loadPost } from "./services/fakePostService";
 import { getComments } from "./services/fakeCommentService";
 import Like from "./common/like";
 
 class PostDetails extends Component {
   constructor(props) {
     super(props);
+    loadPost(this.props.match.params.id)
+      .then(postDoc => {
+        this.setState({
+          post: postDoc.data()
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
     this.state = {
-      post: getPost(props.match.params.id),
+      post: {},
       comments: getComments(props.match.params.id)
     };
   }
-
-  
 
   handleCommentAdded = () => {
     const comments = getComments(this.state.post.id);
@@ -28,7 +35,7 @@ class PostDetails extends Component {
     const blogPost = this.state.post;
     post.liked = !post.liked;
     this.setState({ blogPost });
-  }
+  };
 
   isCurrentUser() {
     return this.props.currentUser;
@@ -57,8 +64,8 @@ class PostDetails extends Component {
             alt="bla"
           />
           <div className="card-body">
-            <h5 className="card-title">{post.title}</h5>
-            <p className="card-text">{post.content}</p>
+            <h5 className="card-title">{this.state.post.title}</h5>
+            <p className="card-text">{this.state.post.content}</p>
             <Like liked={post.liked} onClick={() => this.handleLike(post)} />
           </div>
         </div>

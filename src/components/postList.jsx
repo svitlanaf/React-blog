@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Post from "./post";
 import { Link } from "react-router-dom";
-import { getPosts, loadPosts } from "./services/fakePostService";
-import { getBlog, loadBlog } from "./services/fakeBlogService";
+import { loadPosts } from "./services/fakePostService";
+import { loadBlog } from "./services/fakeBlogService";
 
 class PostList extends Component {
   constructor(props) {

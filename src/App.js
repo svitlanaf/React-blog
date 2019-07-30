@@ -5,7 +5,7 @@ import NavBar from "./components/navbar";
 import SignInAndSignUp from "./components/signInAndSignUp";
 import BlogList from "./components/blogList";
 import NotFound from "./components/notFound";
-import Communities from "./components/communities";
+// import Communities from "./components/communities";
 import BlogForm from "./components/blogForm";
 import PostForm from "./components/postForm";
 import PostList from "./components/postList";
@@ -53,7 +53,7 @@ class App extends Component {
         <NavBar currentUser={this.state.currentUser} />
         <main className="container">
           <Switch>
-            <Route path="/communities" component={Communities} />
+            {/* <Route path="/communities" component={Communities} /> */}
             <Route
               path="/new-blog"
               render={props => (

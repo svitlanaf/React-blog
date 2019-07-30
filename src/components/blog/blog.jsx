@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getUser, loadUser } from "../services/fakeUserService";
+import { loadUser } from "../services/fakeUserService";
 import "./blog.styles.css";
 
 class Blog extends Component {
   constructor(props) {
     super(props);
     const blogData = this.props.blog.data();
+    // console.log(this.props.blog);
+
     this.state = {
       blog: blogData
     };
@@ -16,7 +18,7 @@ class Blog extends Component {
         this.setState({
           user: userDoc.data()
         });
-        console.log(userDoc.data());
+        // console.log(userDoc.data());
       })
       .catch(error => {
         console.log(error);
