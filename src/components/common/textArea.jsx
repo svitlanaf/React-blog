@@ -4,7 +4,7 @@ const TextArea = ({ name, label, value, error, onChange }) => {
   return (
     <div className="form-group">
       <label htmlFor="name">{label}</label>
-      <textArea
+      <textarea
         value={value}
         name={name}
         onChange={onChange}

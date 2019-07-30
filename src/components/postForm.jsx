@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { getPost, savePost } from "./services/fakePostService";
+import { loadPost, savePost } from "./services/fakePostService";
 
 class PostForm extends Form {
   constructor(props) {
@@ -18,7 +18,6 @@ class PostForm extends Form {
   }
 
   schema = {
-    id: Joi.string(),
     blogId: Joi.string(),
     title: Joi.string()
       .required()
@@ -38,14 +37,17 @@ class PostForm extends Form {
     // if props has post id then we edit post
     const postId = this.props.match.params.id;
 
-    const post = getPost(postId);
-    if (!post) return this.props.history.replace("/not-found");
-    this.setState({ data: this.mapToViewModel(post) });
+    loadPost(postId)
+      .then(postDoc => {
+        this.setState({ data: this.mapToViewModel(postDoc.data()) });
+      })
+      .catch(error => {
+        this.props.history.replace("/not-found");
+      });
   }
 
   mapToViewModel(post) {
     return {
-      id: post.id,
       blogId: post.blogId,
       title: post.title,
       content: post.content
@@ -53,10 +55,14 @@ class PostForm extends Form {
   }
 
   doSubmit = () => {
-    savePost(this.state.data);
-    this.props.history.push(`/blogs/${this.state.data.blogId}/posts`);
+    savePost(this.props.match.params.id, this.state.data)
+      .then(post => {
+        this.props.history.push(`/blogs/${this.state.data.blogId}/posts`);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
-
 
   render() {
     return (

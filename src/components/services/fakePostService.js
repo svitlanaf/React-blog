@@ -1,3 +1,5 @@
+import { firestore } from "../../firebase/firebase.utils";
+
 export const posts = [
   {
     id: "1",
@@ -40,22 +42,75 @@ export function getPosts(blogId) {
   return posts.filter(post => post.blogId === blogId);
 }
 
+export function loadPosts(blogId) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("posts")
+      .where("blogId", "==", blogId)
+      .get()
+      .then(function(snapshot) {
+        resolve(snapshot.docs);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
+
+export function loadPost(id) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("posts")
+      .doc(id)
+      .get()
+      .then(function(docRef) {
+        resolve(docRef);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
+
 export function getPost(postId) {
   return posts.find(p => p.id === postId);
 }
 
-export function savePost(post) {
-  let postInDb = posts.find(p => p.id === post.id) || {};
-  postInDb.blogId = post.blogId;
-  postInDb.title = post.title;
-  postInDb.content = post.content;
+export function saveNewPost(post) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("posts")
+      .add(post)
+      .then(function(snapshot) {
+        resolve(snapshot.docs);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
 
-  if (!postInDb.id) {
-    postInDb.id = Date.now().toString();
-    posts.push(postInDb);
+export function savePost(postId, post) {
+  if (postId) {
+    return new Promise((resolve, reject) => {
+      firestore
+        .collection("posts")
+        .doc(postId)
+        .set(post)
+        .then(function(docRef) {
+          resolve(docRef);
+        })
+        .catch(function(error) {
+          console.log(error);
+          reject(error);
+        });
+    });
+  } else {
+    return saveNewPost(post);
   }
-
-  return postInDb;
 }
 
 export function deletePost(id) {

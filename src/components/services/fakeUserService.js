@@ -1,3 +1,5 @@
+import { firestore } from "../../firebase/firebase.utils";
+
 export const users = [
   {
     id: "uNcVhxKx01TKZGPmwBMTQmsYFks2",
@@ -48,6 +50,22 @@ export const users = [
     name: "Hugh Jackman"
   }
 ];
+
+export function loadUser(id) {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("users")
+      .doc(id)
+      .get()
+      .then(function(docRef) {
+        resolve(docRef);
+      })
+      .catch(function(error) {
+        console.log(error);
+        reject(error);
+      });
+  });
+}
 
 export function getUsers() {
   return users;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Blog from "./blog/blog";
-import { getBlogs } from "./services/fakeBlogService";
+import { getBlogs, loadAllBlogs } from "./services/fakeBlogService";
 
 class BlogList extends Component {
   state = {
@@ -8,9 +8,15 @@ class BlogList extends Component {
   };
 
   componentDidMount() {
-    this.setState({
-      blogs: getBlogs(this.props.match.params.id)
-    });
+    loadAllBlogs()
+      .then(blogs => {
+        this.setState({
+          blogs
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {

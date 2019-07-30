@@ -76,24 +76,18 @@ class App extends Component {
             />
             <Route exact path="/blogs" component={BlogList} />
             <Route path="/not-found" component={NotFound} />
-            <Route 
-              path="/posts/edit/:id" 
+            <Route
+              path="/posts/edit/:id"
               render={props => (
-                <PostForm
-                  {...props}
-                  currentUser={this.state.currentUser}
-                />
-              )} 
-              />
-            <Route 
-              path="/blogs/:blogId/posts/new-post" 
-              render={props => (
-                <PostForm
-                  {...props}
-                  currentUser={this.state.currentUser}
-                />
+                <PostForm {...props} currentUser={this.state.currentUser} />
               )}
-               />
+            />
+            <Route
+              path="/blogs/:blogId/posts/new-post"
+              render={props => (
+                <PostForm {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route
               path="/sign-in"
               render={props => (
