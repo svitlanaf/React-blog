@@ -31,8 +31,6 @@ class Blog extends Component {
       deleteBlog(this.props.blog.id).then(() => {
         this.props.onDelete();
       });
-    } else {
-      this.props.history.push("/blogs");
     }
   };
 
