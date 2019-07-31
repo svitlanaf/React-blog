@@ -1,4 +1,5 @@
 import { firestore } from "../../firebase/firebase.utils";
+import { loadPosts } from "./fakePostService";
 
 export function loadAllBlogs() {
   return new Promise((resolve, reject) => {
@@ -47,8 +48,21 @@ export function saveNewBlog(blog) {
 }
 
 export function deleteBlog(blogId) {
-  return firestore
-    .collection("blogs")
-    .doc(blogId)
-    .delete();
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection("blogs")
+      .doc(blogId)
+      .delete()
+      .then(() => {
+        resolve();
+        return loadPosts(blogId).then(posts => {
+          posts.forEach(element => {
+            element.ref.delete();
+          });
+        });
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 }
