@@ -27,9 +27,13 @@ class Blog extends Component {
   }
 
   deleteCurrentBlog = () => {
-    deleteBlog(this.props.blog.id).then(() => {
-      this.props.onDelete();
-    });
+    if (window.confirm("Are you sure you want to delete your blog?")) {
+      deleteBlog(this.props.blog.id).then(() => {
+        this.props.onDelete();
+      });
+    } else {
+      this.props.history.push("/blogs");
+    }
   };
 
   render() {
@@ -48,7 +52,7 @@ class Blog extends Component {
               <div className="user">
                 {this.state.blog.avatar ? (
                   <img
-                    className="img-circle"
+                    className="img"
                     src={this.state.blog.avatar}
                     alt="user-avatar"
                   />

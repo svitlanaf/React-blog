@@ -40,8 +40,8 @@ class Post extends Component {
           alt="bla"
         />
         <div className="card-body">
-          <h5 className="card-title">{this.props.post.title}</h5>
-          <p className="card-text">{this.state.shortContent}</p>
+          <h3 className="card-title">{this.props.post.title}</h3>
+          <p className="post-card-text">{this.state.shortContent}</p>
           <div className="row">
             <div className="col-6">
               <Link

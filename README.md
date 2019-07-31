@@ -33,6 +33,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Known Bugs / Limitations
 
 - _No bugs found._
+- _"Like" component doesn't do pretty much anything yet._
 
 ## Support and contact details
 
