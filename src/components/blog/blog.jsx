@@ -13,7 +13,6 @@ class Blog extends Component {
     this.state = {
       blog: blogData
     };
-    console.log(this.state.blog.userId);
 
     loadUser(blogData.userId)
       .then(userDoc => {
@@ -28,10 +27,9 @@ class Blog extends Component {
   }
 
   deleteCurrentBlog = () => {
-    deleteBlog(this.props.blog.id);
-    if (this.props.onDelete) {
+    deleteBlog(this.props.blog.id).then(() => {
       this.props.onDelete();
-    }
+    });
   };
 
   render() {

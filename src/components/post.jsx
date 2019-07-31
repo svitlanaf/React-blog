@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { loadUser } from "./services/fakeUserService";
+import { deletePost } from "./services/fakePostService";
 // import { getBlog } from "./services/fakeBlogService";
 
 class Post extends Component {
@@ -24,6 +25,12 @@ class Post extends Component {
     };
   }
 
+  deleteCurrentPost = () => {
+    deletePost(this.props.postId).then(() => {
+      this.props.onDelete();
+    });
+  };
+
   render() {
     return (
       <div className="card">
@@ -44,12 +51,22 @@ class Post extends Component {
                 Read more
               </Link>
               {this.props.showEdit ? (
-                <Link
-                  to={`/posts/edit/${this.props.postId}`}
-                  className="btn btn-primary"
-                >
-                  Edit
-                </Link>
+                <div>
+                  <Link
+                    to={`/posts/edit/${this.props.postId}`}
+                    className="btn btn-primary"
+                    id="edit_post"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={this.deleteCurrentPost}
+                    id="delete_post"
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                </div>
               ) : (
                 ""
               )}

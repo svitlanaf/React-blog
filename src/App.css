@@ -41,3 +41,13 @@
 .fa-heart {
   color: red;
 }
+
+#delete_post {
+  margin-top: -127px;
+  margin-left: 270px;
+}
+
+#edit_post {
+  margin-top: -79px;
+  margin-left: 160px;
+}

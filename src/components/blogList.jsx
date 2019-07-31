@@ -27,9 +27,17 @@ class BlogList extends Component {
     );
   }
 
-  onBlogDeleted() {
-    this.props.history.push("/blogs");
-  }
+  onBlogDeleted = () => {
+    loadAllBlogs()
+      .then(blogs => {
+        this.setState({
+          blogs
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     const { length: count } = this.state.blogs;

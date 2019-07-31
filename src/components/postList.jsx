@@ -52,6 +52,25 @@ class PostList extends Component {
     }
   }
 
+  onPostDeleted = () => {
+    loadBlog(this.props.match.params.id)
+      .then(blogDoc => {
+        loadPosts(this.props.match.params.id)
+          .then(posts => {
+            this.setState({
+              blog: blogDoc.data(),
+              posts
+            });
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     const { length: count } = this.state.posts;
 
@@ -73,6 +92,8 @@ class PostList extends Component {
             key={p.id}
             userId={this.state.blog.userId}
             showEdit={this.isCurrentUserAuthor()}
+            showDelete={this.isCurrentUserAuthor(p)}
+            onDelete={this.onPostDeleted}
           />
         ))}
       </div>
