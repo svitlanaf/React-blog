@@ -11,16 +11,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | User stories                                                                                                                                                                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | As an unregistered user, I need to be able to register with my username and password. Username and password must be unique. If a username or password is not unique the warning should appear. |
-| As an unregistered user I need to be able to see blog, posts and communities. I'm not allowed to edit or delete someones blogs or posts.                                                       |
-| As an unregistered user I need to be able to search for a particular words in posts.                                                                                                           |
+| As an unregistered user I need to be able to see blogs and posts. I'm not allowed to edit or delete someones blogs or posts, or leave comments.                                                |
 | As a registered user I need to be able to add a blog.                                                                                                                                          |
 | As a registered user I need to be able to edit blog title and description.                                                                                                                     |
 | As a registered user I need to be able to add posts to my blog.                                                                                                                                |
 | As a registered user I need to be able to add an image to my posts.                                                                                                                            |
 | As a registered user I need to be able to edit posts of my blog (title, content).                                                                                                              |
-| As a registered user I need to be able to add my blog to any community.                                                                                                                        |
-| As a registered user I need to be able to remove communities form my blog.                                                                                                                     |
-| As a registered user I need to be able to add a new community.                                                                                                                                 |
 | As a registered user I need to be able to add comments to posts.                                                                                                                               |
 | As a registered user I need to be able to "like" posts.                                                                                                                                        |
 
