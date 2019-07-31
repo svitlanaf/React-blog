@@ -19,12 +19,15 @@ class BlogForm extends Form {
   schema = {
     title: Joi.string()
       .required()
+      .max(20)
       .label("Title"),
     about: Joi.string()
       .required()
+      .max(120)
       .label("About"),
     aboutBlog: Joi.string()
       .required()
+      .max(350)
       .label("More about blog"),
     inLink: Joi.string().label("LinkedIn"),
     ghLink: Joi.string().label("GitHub")
