@@ -26,9 +26,11 @@ class Post extends Component {
   }
 
   deleteCurrentPost = () => {
-    deletePost(this.props.postId).then(() => {
-      this.props.onDelete();
-    });
+    if (window.confirm("Are you sure you want to delete your post?")) {
+      deletePost(this.props.postId).then(() => {
+        this.props.onDelete();
+      });
+    }
   };
 
   render() {
