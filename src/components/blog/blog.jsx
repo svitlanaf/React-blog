@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { loadUser } from "../services/fakeUserService";
+import { loadUser } from "../services/userService";
 import "./blog.styles.css";
-import { deleteBlog } from "../services/fakeBlogService";
+import { deleteBlog } from "../services/blogService";
 
 class Blog extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import { firestore } from "../../firebase/firebase.utils";
-import { loadPosts } from "./fakePostService";
+import { loadPosts } from "./postService";
 
 export function loadAllBlogs() {
   return new Promise((resolve, reject) => {

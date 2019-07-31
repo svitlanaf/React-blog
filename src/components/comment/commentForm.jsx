@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "../common/form";
-import { saveNewComment } from "../services/fakeCommentService";
+import { saveNewComment } from "../services/commentService";
 
 class CommentForm extends Form {
   constructor(props) {

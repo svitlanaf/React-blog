@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { loadUser } from "./services/fakeUserService";
-import { deletePost } from "./services/fakePostService";
+import { loadUser } from "./services/userService";
+import { deletePost } from "./services/postService";
 // import { getBlog } from "./services/fakeBlogService";
 
 class Post extends Component {

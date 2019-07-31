@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./comment.styles.css";
-import { loadUser } from "../services/fakeUserService";
+import { loadUser } from "../services/userService";
 // import { getUser } from "../services/fakeUserService";
 
 class Comment extends Component {

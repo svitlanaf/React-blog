@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { loadPost, savePost } from "./services/fakePostService";
+import { loadPost, savePost } from "./services/postService";
 
 class PostForm extends Form {
   constructor(props) {
