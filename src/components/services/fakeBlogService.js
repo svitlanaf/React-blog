@@ -46,8 +46,9 @@ export function saveNewBlog(blog) {
   });
 }
 
-// export function deleteBlog(id) {
-//   let blogInDb = blogs.find(b => b.id === id);
-//   blogs.splice(blogs.indexOf(blogInDb), 1);
-//   return blogInDb;
-// }
+export function deleteBlog(blogId) {
+  return firestore
+    .collection("blogs")
+    .doc(blogId)
+    .delete();
+}

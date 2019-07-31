@@ -19,15 +19,34 @@ class BlogList extends Component {
       });
   }
 
+  isCurrentUserAuthor(blog) {
+    return (
+      this.props.currentUser &&
+      blog &&
+      blog.data().userId === this.props.currentUser.id
+    );
+  }
+
+  onBlogDeleted() {
+    this.props.history.push("/blogs");
+  }
+
   render() {
     const { length: count } = this.state.blogs;
 
     if (count === 0) return <p>There are no blogs yet.</p>;
     return (
       <div>
-        {this.state.blogs.map(b => (
-          <Blog blog={b} key={b.id} />
-        ))}
+        {this.state.blogs.map(b => {
+          return (
+            <Blog
+              blog={b}
+              key={b.id}
+              showDelete={this.isCurrentUserAuthor(b)}
+              onDelete={this.onBlogDeleted}
+            />
+          );
+        })}
       </div>
     );
   }

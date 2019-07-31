@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { loadUser } from "../services/fakeUserService";
 import "./blog.styles.css";
+import { deleteBlog } from "../services/fakeBlogService";
 
 class Blog extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Blog extends Component {
     this.state = {
       blog: blogData
     };
+    console.log(this.state.blog.userId);
 
     loadUser(blogData.userId)
       .then(userDoc => {
@@ -24,6 +26,13 @@ class Blog extends Component {
         console.log(error);
       });
   }
+
+  deleteCurrentBlog = () => {
+    deleteBlog(this.props.blog.id);
+    if (this.props.onDelete) {
+      this.props.onDelete();
+    }
+  };
 
   render() {
     return (
@@ -73,7 +82,6 @@ class Blog extends Component {
 
                   <a
                     href={this.state.blog.inLink}
-                    target="_blank"
                     id="linkedin"
                     className="social-icon linkedin animate"
                   >
@@ -82,20 +90,37 @@ class Blog extends Component {
 
                   <a
                     href={this.state.blog.ghLink}
-                    target="_blank"
                     id="github"
                     className="social-icon github animate"
                   >
                     <span className="fa fa-github-alt" />
                   </a>
                 </div>
-                <Link
-                  to={`/blogs/${this.props.blog.id}/posts`}
-                  id="read_posts"
-                  className="btn btn-primary"
-                >
-                  Read posts
-                </Link>
+                <div className="row">
+                  <div className="col-6">
+                    <Link
+                      to={`/blogs/${this.props.blog.id}/posts`}
+                      id="read_posts"
+                      className="btn btn-primary"
+                    >
+                      Read posts
+                    </Link>
+                  </div>
+
+                  {this.props.showDelete ? (
+                    <div className="col-6">
+                      <button
+                        onClick={this.deleteCurrentBlog}
+                        id="delete_blog"
+                        className="btn btn-danger"
+                      >
+                        Delete blog
+                      </button>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
           </div>

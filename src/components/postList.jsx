@@ -27,6 +27,7 @@ class PostList extends Component {
     this.state = {
       posts: []
     };
+    console.log(this.props.currentUser);
   }
 
   isCurrentUserAuthor() {

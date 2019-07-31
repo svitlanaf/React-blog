@@ -74,7 +74,13 @@ class App extends Component {
                 <PostDetails {...props} currentUser={this.state.currentUser} />
               )}
             />
-            <Route exact path="/blogs" component={BlogList} />
+            <Route
+              exact
+              path="/blogs"
+              render={props => (
+                <BlogList {...props} currentUser={this.state.currentUser} />
+              )}
+            />
             <Route path="/not-found" component={NotFound} />
             <Route
               path="/posts/edit/:id"

@@ -7,7 +7,7 @@ class Post extends Component {
   constructor(props) {
     super(props);
     let content = this.props.post.content;
-    let short_content = content.split(" ", 15).join(" ") + "...";
+    let shortContent = content.split(" ", 15).join(" ") + "...";
 
     loadUser(this.props.userId)
       .then(userDoc => {
@@ -20,7 +20,7 @@ class Post extends Component {
       });
 
     this.state = {
-      short_content: short_content
+      shortContent: shortContent
     };
   }
 
@@ -34,7 +34,7 @@ class Post extends Component {
         />
         <div className="card-body">
           <h5 className="card-title">{this.props.post.title}</h5>
-          <p className="card-text">{this.state.short_content}</p>
+          <p className="card-text">{this.state.shortContent}</p>
           <div className="row">
             <div className="col-6">
               <Link
