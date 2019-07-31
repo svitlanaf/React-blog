@@ -7,6 +7,9 @@ const TextArea = ({ name, label, value, error, onChange }) => {
       <textarea
         value={value}
         name={name}
+        wrap="hard"
+        rows="5"
+        cols="60"
         onChange={onChange}
         id={name}
         className="form-control"

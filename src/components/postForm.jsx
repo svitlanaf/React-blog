@@ -21,6 +21,7 @@ class PostForm extends Form {
     blogId: Joi.string(),
     title: Joi.string()
       .required()
+      .max(30)
       .label("Title"),
     content: Joi.string()
       .required()
