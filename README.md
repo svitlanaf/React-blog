@@ -32,10 +32,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Known Bugs / Limitations
 
-- _Text in post description appears without paragraphs._
 - _User avatar is not rounded on upload._
-- _Short content in posts is not working for new created posts._
 - _"Like" component doesn't do pretty much anything yet._
+- \_Added blogs and posts are not sorted by date yet.
 
 ## Support and contact details
 
