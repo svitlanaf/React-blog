@@ -2,6 +2,7 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { saveNewBlog } from "./services/blogService";
+import ImageUpload from "../components/imgUpload";
 
 class BlogForm extends Form {
   state = {
@@ -55,7 +56,7 @@ class BlogForm extends Form {
           {this.renderTextArea("aboutBlog", "More about blog")}
           {this.renderInput("inLink", "LinkedIn")}
           {this.renderInput("ghLink", "GitHub")}
-          {/* {this.renderInput("avatar", "Avatar")} */}
+          <ImageUpload />
           {this.renderButton("Save")}
         </form>
       </div>
