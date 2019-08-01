@@ -34,7 +34,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - _User avatar is not rounded on upload._
 - _"Like" component doesn't do pretty much anything yet._
-- \_Added blogs and posts are not sorted by date yet.
+- _Added blogs and posts are not sorted by date yet.
+- _Edit blog shows new blog form._
 
 ## Support and contact details
 
