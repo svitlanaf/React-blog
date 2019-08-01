@@ -82,7 +82,13 @@ class PostDetails extends Component {
           />
           <div className="card-body">
             <h3 className="card-title">{this.state.post.title}</h3>
-            <p className="post-card-text">{this.state.post.content}</p>
+            <p className="post-card-text">
+              {this.state.post.content
+                ? this.state.post.content.split("\n").map(line => {
+                    return <p>{line}</p>;
+                  })
+                : ""}
+            </p>
             <Like liked={post.liked} onClick={() => this.handleLike(post)} />
           </div>
         </div>
