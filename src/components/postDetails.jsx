@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CommentList from "./commentList";
 import CommentForm from "./comment/commentForm";
 import { loadPost } from "./services/postService";
-// import { getComments } from "./services/fakeCommentService";
 import { loadComments } from "./services/commentService";
 import Like from "./common/like";
 

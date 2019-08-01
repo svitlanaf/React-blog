@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { storage } from "../firebase/firebase.utils";
+import { firestore, storage } from "../firebase/firebase.utils";
 
 
 class ImageUpload extends Component {
@@ -39,7 +39,6 @@ class ImageUpload extends Component {
                 this.setState({url})
             })
             //complete function
-
         });
     }
 

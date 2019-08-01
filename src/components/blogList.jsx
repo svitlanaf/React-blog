@@ -3,9 +3,12 @@ import Blog from "./blog/blog";
 import { loadAllBlogs } from "./services/blogService";
 
 class BlogList extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     blogs: []
   };
+}
 
   componentDidMount() {
     loadAllBlogs()
@@ -51,6 +54,7 @@ class BlogList extends Component {
               blog={b}
               key={b.id}
               showDelete={this.isCurrentUserAuthor(b)}
+              showEdit={this.isCurrentUserAuthor()}
               onDelete={this.onBlogDeleted}
             />
           );

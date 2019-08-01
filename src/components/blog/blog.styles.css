@@ -290,7 +290,13 @@ pre.prettyprint {
 }
 
 #delete_blog {
+  margin-top: -80px;
+  margin-left: 130px;
+  width: 150px;
+}
+
+#edit_blog {
   margin-top: 80px;
-  margin-left: -130px;
+  margin-left: -40px;
   width: 150px;
 }

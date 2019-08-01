@@ -9,7 +9,6 @@ import BlogForm from "./components/blogForm";
 import PostForm from "./components/postForm";
 import PostList from "./components/postList";
 import PostDetails from "./components/postDetails";
-import ImageUpload from "./components/imgUpload";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -55,6 +54,12 @@ class App extends Component {
           <Switch>
             <Route
               path="/new-blog"
+              render={props => (
+                <BlogForm {...props} currentUser={this.state.currentUser} />
+              )}
+            />
+            <Route
+              path="/blogs/edit/:id"
               render={props => (
                 <BlogForm {...props} currentUser={this.state.currentUser} />
               )}

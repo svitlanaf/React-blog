@@ -12,7 +12,6 @@ class BlogForm extends Form {
       aboutBlog: "",
       inLink: "",
       ghLink: ""
-      // avatar: ""
     },
     errors: {}
   };
@@ -49,7 +48,6 @@ class BlogForm extends Form {
   render() {
     return (
       <div>
-        <h1>Start Your Blog</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderInput("about", "About")}

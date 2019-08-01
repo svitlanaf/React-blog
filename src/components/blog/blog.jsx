@@ -8,7 +8,6 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     const blogData = this.props.blog.data();
-    // console.log(this.props.blog);
 
     this.state = {
       blog: blogData
@@ -19,7 +18,6 @@ class Blog extends Component {
         this.setState({
           user: userDoc.data()
         });
-        // console.log(userDoc.data());
       })
       .catch(error => {
         console.log(error);
@@ -33,6 +31,7 @@ class Blog extends Component {
       });
     }
   };
+  
 
   render() {
     return (
@@ -97,7 +96,7 @@ class Blog extends Component {
                   </a>
                 </div>
                 <div className="row">
-                  <div className="col-6">
+                  <div className="col-4">
                     <Link
                       to={`/blogs/${this.props.blog.id}/posts`}
                       id="read_posts"
@@ -108,13 +107,20 @@ class Blog extends Component {
                   </div>
 
                   {this.props.showDelete ? (
-                    <div className="col-6">
+                    <div className="col-8">
+                     <Link
+                      to={`/blogs/edit/${this.props.blog.id}`}
+                      className="btn btn-primary"
+                      id="edit_blog"
+                    >
+                      Edit
+                    </Link>
                       <button
                         onClick={this.deleteCurrentBlog}
                         id="delete_blog"
                         className="btn btn-danger"
                       >
-                        Delete blog
+                        Delete
                       </button>
                     </div>
                   ) : (

@@ -47,6 +47,26 @@ export function saveNewBlog(blog) {
   });
 }
 
+export function saveBlog(blogId, blog) {
+  if (blogId) {
+    return new Promise((resolve, reject) => {
+      firestore
+        .collection("blogs")
+        .doc(blogId)
+        .set(blog)
+        .then(function(docRef) {
+          resolve(docRef);
+        })
+        .catch(function(error) {
+          console.log(error);
+          reject(error);
+        });
+    });
+  } else {
+    return saveBlog(blog);
+  }
+}
+
 export function deleteBlog(blogId) {
   return new Promise((resolve, reject) => {
     firestore
