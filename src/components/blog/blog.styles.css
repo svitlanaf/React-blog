@@ -95,18 +95,15 @@
 .card .cover img {
   width: 100%;
 }
-.card .user {
-  border-radius: 50%;
-  display: block;
-  height: 120px;
-  margin: -55px auto 0;
-  overflow: hidden;
-  width: 120px;
-}
+
 .card .user img {
   background: none repeat scroll 0 0 #ffffff;
-  border: 4px solid #ffffff;
-  width: 100%;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  display: block;
+  margin: -55px auto 0;
+  overflow: hidden;
 }
 
 .card .content {
@@ -296,10 +293,4 @@ pre.prettyprint {
   margin-top: 80px;
   margin-left: -130px;
   width: 150px;
-}
-
-.img {
-  border-radius: 50%;
-  height: 115px;
-  width: 115px;
 }
