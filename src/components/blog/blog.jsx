@@ -13,8 +13,6 @@ class Blog extends Component {
       blog: blogData
     };
 
-    console.log(this.props.blog.id);
-
     loadUser(blogData.userId)
       .then(userDoc => {
         this.setState({

@@ -32,7 +32,11 @@ function NavBar({ currentUser }) {
           )}
 
           {currentUser ? (
-            <div className="nav-item nav-link" onClick={() => auth.signOut()}>
+            <div
+              id="signOut"
+              className="nav-item nav-link"
+              onClick={() => auth.signOut()}
+            >
               Sign out
             </div>
           ) : (
