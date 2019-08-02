@@ -63,7 +63,7 @@ export function saveBlog(blogId, blog) {
         });
     });
   } else {
-    return saveBlog(blog);
+    return saveNewBlog(blog);
   }
 }
 

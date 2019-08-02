@@ -11,9 +11,9 @@ class Blog extends Component {
 
     this.state = {
       blog: blogData
-    }; 
-    
-    console.log(this.props.blog.id)
+    };
+
+    console.log(this.props.blog.id);
 
     loadUser(blogData.userId)
       .then(userDoc => {
@@ -33,7 +33,6 @@ class Blog extends Component {
       });
     }
   };
-  
 
   render() {
     return (
@@ -110,13 +109,13 @@ class Blog extends Component {
 
                   {this.props.showDelete ? (
                     <div className="col-6">
-                     {/* <Link
-                      to={`/blogs/edit/${this.props.blog.id}`}
-                      className="btn btn-primary"
-                      id="edit_blog"
-                    >
-                      Edit
-                    </Link> */}
+                      <Link
+                        to={`/blogs/edit/${this.props.blog.id}`}
+                        className="btn btn-primary"
+                        id="edit_blog"
+                      >
+                        Edit
+                      </Link>
                       <button
                         onClick={this.deleteCurrentBlog}
                         id="delete_blog"

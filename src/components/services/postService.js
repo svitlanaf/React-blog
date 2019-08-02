@@ -63,7 +63,7 @@ export function savePost(postId, post) {
         });
     });
   } else {
-    return savePost(post);
+    return saveNewPost(post);
   }
 }
 
