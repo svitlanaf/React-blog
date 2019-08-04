@@ -88,7 +88,7 @@ class BlogForm extends Form {
           {this.renderTextArea("aboutBlog", "More about blog")}
           {this.renderInput("inLink", "LinkedIn")}
           {this.renderInput("ghLink", "GitHub")}
-          <ImageUpload />
+          {/* <ImageUpload /> */}
           {this.renderButton("Save")}
         </form>
       </div>
