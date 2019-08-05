@@ -54,8 +54,8 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
-        <h2 className="title">I do not have an account</h2>
-        <span>Sign up with your email and password</span>
+        <h2>I do not have an account</h2>
+        <span className="text">Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
@@ -89,7 +89,9 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           />
-          <button type="submit">Sign Up</button>
+          <button id="button" className="btn btn-primary" type="submit">
+            Sign Up
+          </button>
         </form>
       </div>
     );
